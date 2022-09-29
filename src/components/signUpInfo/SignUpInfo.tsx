@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './SignUpInfo.module.css';
-import Inputs from './inputs/Inputs';
+import Inputs from './inputs/InputsSignUp';
 
 
 const SignUpInfo: React.FC<any> = ({formik, validationSchema}) => {

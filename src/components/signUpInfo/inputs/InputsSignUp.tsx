@@ -78,6 +78,7 @@ const Inputs: React.FC<any> = ({formik}) =>{
           aria-describedby="component-error-text" />
       <TextField 
         name='password'
+        type='password'
         value={formik.values.password}
         onChange={formik.handleChange}
         error={Boolean(formik.errors.password) && Boolean(formik.touched.password)} 
@@ -87,10 +88,10 @@ const Inputs: React.FC<any> = ({formik}) =>{
         helperText={formik.errors.password} />
       <TextField 
         name='repeatPassword'
+        type='password'
         value={formik.values.repeatPassword}
         onChange={formik.handleChange}
-        error={Boolean(formik.errors.repeatPassword) && Boolean(formik.touched.repeatPassword)}
-        
+        error={Boolean(formik.touched.repeatPassword) && Boolean(formik.errors.repeatPassword) }
         id="outlined-basic" 
         label="Repeat Password" 
         variant="standard" />

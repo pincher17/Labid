@@ -28,7 +28,7 @@ const validationSchemaSignUp = yup.object({
     phone: yup.string().transform((values)=> values.replace(/[.?^$[\]\\(){}|-]/gm, '')).required('Phone required').matches(regExpPhone, 'wrong phone'),
     email: yup.string().required('Required').matches(regExpEmail, 'wrong phone'),
     password: yup.string().required('Required').min(Number(password.minLength)).max(Number(password.maxLength)),
-    repeatPassword: yup.string().required('Repeat password')
+    repeatPassword: yup.string().required('Repeat password').oneOf([yup.ref('password'), null], 'Passwords must match')
   })
 const validationSchemaPersonalInfo = yup.object({
   firstName: yup.string().required('Required').min(Number(firstName.minLength)).max(Number(firstName.maxLength)),
