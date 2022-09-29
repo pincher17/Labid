@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import s from './InputsSignUp.module.css';
-import { Checkbox, FormControl, FormControlLabel, FormLabel, InputLabel, ListItemText, MenuItem, OutlinedInput, Radio, RadioGroup, Select, SelectChangeEvent, Stack } from '@mui/material';
-import { FormikContextType } from 'formik';
-import moment from 'moment';
-import dayjs, { Dayjs } from 'dayjs';
+import { Checkbox, FormControl, FormControlLabel, FormLabel, InputLabel, ListItemText, MenuItem, OutlinedInput, Radio, RadioGroup, Select } from '@mui/material';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
@@ -22,21 +19,10 @@ const MenuProps = {
 
 
 
-const InputsPersonalInfo: React.FC<any> = ({formik, setSignUp}) =>{
+const InputsPersonalInfo: React.FC<any> = ({formik, setSignUp, hobbyData, oceanData}) =>{
  
-  const hobbies = [
-    'Oliver Hansen',
-    'Van Henry',
-    'April Tucker',
-    'Ralph Hubbard',
-    'Omar Alexander',
-    'Carlos Abbott',
-    'Miriam Wagner',
-    'Bradley Wilkerson',
-    'Virginia Andrews',
-    'Kelly Snyder',
-  ];
-
+  const hobbies = hobbyData;
+  const oceans = oceanData;
 
   return (
   <form onSubmit={formik.handleSubmit}>
@@ -71,7 +57,7 @@ const InputsPersonalInfo: React.FC<any> = ({formik, setSignUp}) =>{
         helperText={formik.errors.lastName} />
 
       <FormControl>
-      <FormLabel id="demo-row-radio-buttons-group-label">Gender</FormLabel>
+      <FormLabel id="demo-row-radio-buttons-group-label">Sex</FormLabel>
       <RadioGroup
         value={formik.values.inCompliance}
         onChange={formik.handleChange}
@@ -94,9 +80,9 @@ const InputsPersonalInfo: React.FC<any> = ({formik, setSignUp}) =>{
           label="Your Favorite Ocean"
           name="ocean"
         >
-          <MenuItem value={'Ten'}>Ten</MenuItem>
-          <MenuItem value={'Twenty'}>Twenty</MenuItem>
-          <MenuItem value={'Thirty'}>Thirty</MenuItem>
+          {oceans.map((ocean: string)=>
+            <MenuItem value={ocean}>{ocean}</MenuItem>
+          )}
         </Select>
     </FormControl>
 
@@ -114,7 +100,7 @@ const InputsPersonalInfo: React.FC<any> = ({formik, setSignUp}) =>{
           MenuProps={MenuProps}
           name="hobby"
         >
-          {hobbies.map((hobby) => (
+          {hobbies.map((hobby: string) => (
             <MenuItem key={hobby} value={hobby}>
               <Checkbox checked={formik.values.hobby.indexOf(hobby) > -1} />
               <ListItemText primary={hobby} />

@@ -20,22 +20,16 @@ const signUpInfoSlice = createSlice({
     initialState,
     reducers: {
         
-        setMobilePhone(state, action:PayloadAction<string>) {
-            state.mobilePhone = action.payload;
-        },
-        setEmail(state, action:PayloadAction<string>) {
-            state.email = action.payload;
-        },
-        setPassword(state, action:PayloadAction<string>) {
-            state.password = action.payload;
-        },
-        setPasswordRepeat(state, action:PayloadAction<string>) {
-            state.passwordRepeat = action.payload
-        },
+        setSignUpInfo(state, action:PayloadAction<any>) {
+            state.mobilePhone = action.payload.phone;
+            state.email = action.payload.email;
+            state.password = action.payload.password
+            state.passwordRepeat = action.payload.repeatPassword;
+        }
     },
 });
 
-export const {setEmail, setMobilePhone, setPassword, setPasswordRepeat} = signUpInfoSlice.actions;
+export const {setSignUpInfo} = signUpInfoSlice.actions;
 
 
 
