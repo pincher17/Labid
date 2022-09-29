@@ -1,0 +1,24 @@
+.header{
+  background-color: rgb(85, 126, 238);
+  position: fixed;  
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+.header_wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.wrapper_logo{
+  border: 2px solid white;
+}
+
+.logo{
+  width: 65px;
+}

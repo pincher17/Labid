@@ -1,0 +1,32 @@
+.wrapper{
+    max-width: 500px;
+    margin-bottom: 110px;
+}
+
+.head{
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 8px;
+    margin-bottom: 10px;
+}
+
+.bread_crumbs{
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+}
+
+.btn{
+    background-color: rgb(85, 126, 238);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 18px;
+    padding: 8px 15px 8px 15px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid rgb(85, 126, 238);
+    border-radius: 5px;
+    width: 224px;
+    height: 50px;
+    margin-left: 8px;
+    margin-top: 10px;
+}
