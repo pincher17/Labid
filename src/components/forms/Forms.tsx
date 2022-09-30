@@ -19,8 +19,8 @@ const regExpEmail = new RegExp(email.regExp)
 const regExpPhone = new RegExp(mobilePhone.regExp)
 
 function calculateAge(birthday: any) {
-  var ageDifMs = Date.now() - birthday;
-  var ageDate = new Date(ageDifMs); // miliseconds from epoch
+  const ageDifMs = Date.now() - birthday;
+  const ageDate = new Date(ageDifMs); // miliseconds from epoch
   return Math.abs(ageDate.getUTCFullYear() - 1970);
 }
 
