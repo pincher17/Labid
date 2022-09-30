@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { IMaskInput } from 'react-imask';
@@ -32,7 +32,7 @@ const TextMaskCustom = React.forwardRef<HTMLElement, CustomProps>(
 
 
 const Inputs: React.FC<any> = ({formik}) =>{
-  //console.log(formik)
+  
   
 
   return (

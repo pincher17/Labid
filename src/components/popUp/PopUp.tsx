@@ -9,6 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import { useAppSelector } from '../../hook';
+import s from './popUp.module.css';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -57,7 +58,7 @@ interface PopUpPropsType {
 const PopUp: React.FC<PopUpPropsType> = ({openPopUp, handleClosepopUp}) => {
 
   const {email, mobilePhone} = useAppSelector(state => state.signUpInfoSlice)
-  const {firstName, lastName, gender, hobby, ocean} = useAppSelector(state => state.personalInfo)
+  const {firstName, lastName, gender, hobby, ocean, date} = useAppSelector(state => state.personalInfo)
 
   return (
     <div>
@@ -72,13 +73,43 @@ const PopUp: React.FC<PopUpPropsType> = ({openPopUp, handleClosepopUp}) => {
         </BootstrapDialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
-            <div>Email: {email}</div>
-            <div>Mobile phone: {mobilePhone}</div>
-            <div>First Name: {firstName}</div>
-            <div>Last Name: {lastName}</div>
-            <div>Sex: {gender}</div>
-            <div>Ocean: {ocean}</div>
-            <div>Hobby: {hobby.map((i)=> i)}</div>
+            
+              <div className={s.personal_data}>Email:&nbsp;<div>{email}</div>
+              </div>
+            
+              <div className={s.personal_data}>Mobile phone:&nbsp;<div>{mobilePhone}</div>
+              </div>
+            
+            
+              <div className={s.personal_data}>First Name:&nbsp;<div>{firstName}</div>
+              </div>
+            
+            
+              <div className={s.personal_data}>Last Name:&nbsp;<div>{lastName}</div>
+              </div>
+            
+            
+              <div className={s.personal_data}>Sex:&nbsp;<div>{gender}</div>
+              </div>
+            
+              <div className={s.personal_data}>Age:&nbsp;<div>{date}</div>
+              </div>
+            
+              <div className={s.personal_data}>Ocean:&nbsp;<div>{ocean}</div>
+              </div>
+            
+            
+              <div className={s.personal_data}>Hobby:&nbsp;
+              {hobby.map((i, index, arr)=>
+                <div>
+                  {i}
+                {index===arr.length - 1
+                  ?<></>
+                  :<span className={s.encyclopedia_name}>,&nbsp;</span>}
+                  </div>
+                )}
+              </div>
+            
           </Typography>
         </DialogContent>
         <DialogActions>

@@ -1,0 +1,9 @@
+
+.personal_data{
+    display: flex;
+    font-weight: bold
+}
+
+.personal_data div{
+    font-weight: 500;
+}
